@@ -1,0 +1,964 @@
+@import "tailwindcss";
+html,body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: beige;
+}
+.HomeWallPaper{
+  background-image: none; /* public ディレクトリ内の画像を指定 */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+}
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template:
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 10px
+    "header header header header header header header header header header header header header" 60px
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 10px
+    "...... ...... ...... ...... description description description description description ...... ...... ...... ......" 50px
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 10%
+    "grade5 ...... grade4 ...... grade3 ...... gradepre2  ...... grade2  ...... gradepre1  ...... grade1"  1fr
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 20%
+    /1fr 1% 1fr 1% 1fr 1% 1fr 1% 1fr 1% 1fr 1% 1fr;
+}
+
+.quizWrapper{
+  width: 80%;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template:
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 10px
+    "header header header header header header header header header header header header header" 50px
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 60px
+    "...... ...... ...... question question question question question question question ...... ...... ......" 70px
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 5%
+    "...... ...... ...... ...... answer0 answer0 answer0 answer0 answer0 ...... ......  ...... ......" 10%
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 5px
+    "...... ...... ...... ...... answer1 answer1 answer1 answer1 answer1 ...... ...... ...... ......" 10%
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 5px
+    "...... ...... ...... ...... answer2 answer2 answer2 answer2 answer2 ...... ...... ...... ......" 10%
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 5px
+    "...... ...... ...... ...... answer3 answer3 answer3 answer3 answer3 ...... ...... ...... ......" 10%
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1fr
+    /1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.successWrapper{
+  width: 80%;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template:
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 10px
+    "header header header header header header header header header header header header header" 50px
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 60px
+    "...... ...... success success success success success success success success success ...... ......" 50%
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 10%
+    "...... ...... home home home home  ...... retry retry retry retry ...... ......" 10%
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1fr
+    /1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.failWrapper{
+  width: 80%;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template:
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 10px
+    "header header header header header header header header header header header header header" 50px
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 60px
+    "...... ...... fail fail fail fail fail fail fail fail fail ...... ......" 50%
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 10%
+    "...... ...... home home home home  ...... retry retry retry retry ...... ......" 10%
+    "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1fr
+    /1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+header{
+  grid-area: header;
+  color: white;
+  display: flex;
+  justify-content: center; /* 横中央 */ 
+  align-items: center; /* 縦中央 */
+  font-size: 2rem;
+  background-color: black;
+  border:1px solid black;
+  border-radius: 1vw;
+}
+.description{
+  grid-area: description;
+  color: gray;
+  background-color: white;
+  display: flex;
+  justify-content: center; /* 横中央 */ 
+  align-items: center; /* 縦中央 */
+  font-size: 1.2rem;
+  border-bottom: 0.3vw solid gray;
+}
+.grade5{
+  grid-area: grade5;
+  border:1px solid black;
+  border-radius: 1vw;
+  box-shadow: 2px 2px 3px gray;
+}
+.grade5:hover{
+  box-shadow: 3px 3px 5px gray;
+}
+.grade4{
+  grid-area: grade4;
+  border:1px solid black;
+  border-radius: 1vw;
+  box-shadow: 2px 2px 3px gray;
+}
+.grade4:hover{
+  box-shadow: 3px 3px 5px gray;
+}
+.grade3{
+  grid-area: grade3;
+  border:1px solid black;
+  border-radius: 1vw;
+  box-shadow: 2px 2px 3px gray;
+}
+.grade3:hover{
+  box-shadow: 3px 3px 5px gray;
+}
+.gradepre2{
+  grid-area: gradepre2;
+  border:1px solid black;
+  border-radius: 1vw;
+  box-shadow: 2px 2px 3px gray;
+}
+.gradepre2:hover{
+  box-shadow: 3px 3px 5px gray;
+}
+.grade2{
+  grid-area: grade2;
+  border:1px solid black;
+  border-radius: 1vw;
+  box-shadow: 2px 2px 3px gray;
+}
+.grade2:hover{
+  box-shadow: 3px 3px 5px gray;
+}
+.gradepre1{
+  grid-area: gradepre1;
+  border:1px solid black;
+  border-radius: 1vw;
+  box-shadow: 2px 2px 3px gray;
+}
+.gradepre1:hover{
+  box-shadow: 3px 3px 5px gray;
+}
+.grade1{
+  grid-area: grade1;
+  border:1px solid black;
+  border-radius: 1vw;
+  box-shadow: 2px 2px 3px gray;
+}
+.grade1:hover{
+  box-shadow: 3px 3px 5px gray;
+}
+.view{
+  height: 70%;
+  border:1px solid black;
+  border-radius: 1vw 1vw 0 0;
+  overflow: hidden;
+}
+.photoIcon{
+  height:100%;
+  object-fit: cover;
+  object-position: 60% 100%;
+}
+.grade{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgb(77, 70, 70);
+  font-size: 200%;
+  height: 30%;
+  border:1px solid black;
+  border-radius: 0 0 1vw 1vw;
+}
+
+.modalOverlay{
+  position: fixed;
+  inset:0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  border-radius: 1vw;
+}
+
+.gradeTitle{
+  margin-top: 3%;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  background-color: black;
+  border:1px solid black;
+  border-radius: 1vw;
+}
+.descriptionContainer{
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 70%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: beige;
+}
+.gradeDescription{
+  height: 20%;
+  color: rgb(90, 87, 87);
+  text-align: center;
+  font-size: 20px;
+  border-bottom: 3px dotted gray;
+}
+.startButton{
+  margin-top: 3%;
+  height: 25%;
+  width: 40%;
+  background-color:white;
+  color: gray;
+  border:2px solid gray;
+  border-radius: 1vw;
+}
+.startButton:hover{
+  margin-top: 3%;
+  height: 25%;
+  width: 40%;
+  background-color:gray;
+  color: white;
+  border:2px solid gray;
+  border-radius: 1vw;
+}
+.backButton{
+  margin-top: 3%;
+  height: 25%;
+  width: 40%;
+  background-color: white;
+  color: gray;
+  border:2px solid gray;
+  border-radius: 1vw;
+}
+.backButton:hover{
+  margin-top: 3%;
+  height: 25%;
+  width: 40%;
+  background-color:gray;
+  color: white;
+  border:2px solid gray;
+  border-radius: 1vw;
+}
+
+.wallPaperGrade5{
+  background-image: url('/img/London.jpg'); /* public ディレクトリ内の画像を指定 */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+}
+
+.wallPaperGrade4{
+  background-image: url('/img/LosAngeles.jpg'); /* public ディレクトリ内の画像を指定 */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+}
+
+.wallPaperGrade3{
+  background-image: url('/img/Sydney.jpg'); /* public ディレクトリ内の画像を指定 */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+}
+
+.wallPaperGradepre2{
+  background-image: url('/img/Vancouver.jpg'); /* public ディレクトリ内の画像を指定 */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+}
+
+.wallPaperGrade2{
+  background-image: url('/img/Singapore.jpg'); /* public ディレクトリ内の画像を指定 */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+}
+
+.wallPaperGradepre1{
+  background-image: url('/img/Dubai.jpg'); /* public ディレクトリ内の画像を指定 */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+}
+
+.wallPaperGrade1{
+  background-image: url('/img/NewYork.jpg'); /* public ディレクトリ内の画像を指定 */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+}
+
+.question{
+  grid-area: question;
+  background-color: white;
+  color: black;
+  text-align: center;
+  line-height: 60px;
+  font-size: 50px;
+  font-weight: bold;
+  border:2px solid black;
+  border-radius: 1vw;
+}
+
+.answer0{
+  grid-area: answer0;
+  background-color:white;
+  color: gray;
+  border:2px solid gray;
+  border-radius: 1vw;
+  font-size: 30px;
+}
+
+.answer0:hover{
+  grid-area: answer0;
+  background-color:gray;
+  color: white;
+  border:2px solid gray;
+  border-radius: 1vw;
+  font-size: 30px;
+}
+
+
+.answer1{
+  grid-area: answer1;
+  background-color:white;
+  color: gray;
+  border:2px solid gray;
+  border-radius: 1vw;
+  font-size: 30px;
+}
+
+.answer1:hover{
+  grid-area: answer1;
+  background-color:gray;
+  color: white;
+  border:2px solid gray;
+  border-radius: 1vw;
+  font-size: 30px;
+}
+
+.answer2{
+  grid-area: answer2;
+  background-color:white;
+  color: gray;
+  border:2px solid gray;
+  border-radius: 1vw;
+  font-size: 30px;
+}
+
+.answer2:hover{
+  grid-area: answer2;
+  background-color:gray;
+  color: white;
+  border:2px solid gray;
+  border-radius: 1vw;
+  font-size: 30px;
+}
+
+.answer3{
+  grid-area: answer3;
+  background-color:white;
+  color: gray;
+  border:2px solid gray;
+  border-radius: 1vw;
+  font-size: 30px;
+}
+
+.answer3:hover{
+  grid-area: answer3;
+  background-color:gray;
+  color: white;
+  border:2px solid gray;
+  border-radius: 1vw;
+  font-size: 30px;
+}
+.link{
+  color: rgb(79, 79, 238);
+}
+.link:hover{
+  color: rgb(7, 7, 234);
+}
+.ResultWallPaper{
+  background-image: url('/img/Result.jpg'); /* public ディレクトリ内の画像を指定 */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+}
+
+.successContainer{
+  grid-area: success;
+  border:1px solid black;
+  border-radius: 1vw;
+  overflow: hidden;
+}
+.success{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  color:white;
+  height: 30%;
+  font-size:200%;
+}
+.successAbout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(232, 210, 210);
+  color:red;
+  height: 20%;
+  font-size: 150%;
+  border-bottom: 3px dotted red;
+}
+.successExplain{
+  background-color: rgb(232, 210, 210);
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 25%;
+  font-size: 130%;
+  font-weight: bold;
+  padding-left: 3%;
+}
+#successExplain1{
+  border-left: 5px solid greenyellow;
+  border-bottom: 1px solid black;
+}
+#successExplain2{
+  border-left: 5px solid red;
+}
+.returnHome{
+  grid-area: home;
+  background-color:white;
+  color: gray;
+  border:2px solid gray;
+  border-radius: 1vw;
+  font-size: 30px;
+}
+.returnHome:hover{
+  grid-area: home;
+  background-color:gray;
+  color: white;
+  border:2px solid gray;
+  border-radius: 1vw;
+  font-size: 30px;
+}
+.retry{
+  grid-area: retry;
+  background-color:white;
+  color: gray;
+  border:2px solid gray;
+  border-radius: 1vw;
+  font-size: 30px;
+}
+.retry:hover{
+  grid-area: retry;
+  background-color:gray;
+  color: white;
+  border:2px solid gray;
+  border-radius: 1vw;
+  font-size: 30px;
+}
+
+.failContainer{
+  grid-area: fail;
+  border:1px solid black;
+  border-radius: 1vw;
+  overflow: hidden;
+}
+.fail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  color:white;
+  height: 30%;
+  font-size:200%;
+}
+.failAbout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:rgb(176, 176, 232);
+  color:blue;
+  height: 20%;
+  font-size: 150%;
+  border-bottom: 3px dotted blue;
+}
+.failExplain{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: rgb(176, 176, 232);
+  height: 25%;
+  font-size: 110%;
+  font-weight: bold;
+  padding-left: 3%;
+}
+
+#failExplain1{
+  border-left: 5px solid brown;
+  border-bottom: 1px solid black;
+}
+#failExplain2{
+  border-left: 5px solid yellow;
+}
+
+@media screen and (max-width: 1200px){
+  .wrapper {
+    width: 80%;
+    margin: 0 auto;
+    max-height: 280vh;
+    display: grid;
+    grid-template:
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1%
+      "header header header header header header header header header header header header header" 3%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1%
+      "description description description description description description description description description description description description description" 3%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1%
+      "grade5 grade5 grade5 grade5 grade5 grade5 grade5 grade5 grade5 grade5 grade5 grade5 grade5" 12%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1%
+      "grade4 grade4 grade4 grade4 grade4 grade4 grade4 grade4 grade4 grade4 grade4 grade4 grade4" 12%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1%
+      "grade3 grade3 grade3 grade3 grade3 grade3 grade3 grade3 grade3 grade3 grade3 grade3 grade3" 12%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1%
+      "gradepre2 gradepre2 gradepre2 gradepre2 gradepre2 gradepre2 gradepre2 gradepre2 gradepre2 gradepre2 gradepre2 gradepre2 gradepre2" 12%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1%
+      "grade2 grade2 grade2 grade2 grade2 grade2 grade2 grade2 grade2 grade2 grade2 grade2 grade2" 12%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1%
+      "gradepre1 gradepre1 gradepre1 gradepre1 gradepre1 gradepre1 gradepre1 gradepre1 gradepre1 gradepre1 gradepre1 gradepre1 gradepre1" 12%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1%
+      "grade1 grade1 grade1 grade1 grade1 grade1 grade1 grade1 grade1 grade1 grade1 grade1 grade1" 12%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 5%
+      /1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  .homeAndResultWallPaper{
+    background-image: none;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+  }
+  .header{
+    grid-area: header;
+    display: flex;
+    justify-content: center; /* 横中央 */ 
+    align-items: center; /* 縦中央 */
+    color: white;
+    font-size:2rem;
+    background-color: black;
+    border:1px solid black;
+    border-radius: 1vw;
+  }
+  .description{
+    grid-area: description;
+    display: flex;
+    justify-content: center; /* 横中央 */ 
+    align-items: center; /* 縦中央 */
+    font-size:1rem;
+    color: gray;
+    background-color: white;
+    border-bottom: 0.3vw solid gray;
+  }
+  .photoIcon{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    object-position: 60% 50%;
+  }
+  .modalOverlay{
+    position: fixed;
+    inset:0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    height: 20rem;
+    background-color: white;
+    border-radius: 1vw;
+  }
+  
+  .gradeTitle{
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    background-color: black;
+    border:1px solid black;
+    border-radius: 1vw;
+  }
+  .descriptionContainer{
+    margin-top: 1rem;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 70%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+  }
+  .gradeDescription{
+    height: 20%;
+    color: rgb(90, 87, 87);
+    text-align: center;
+    font-size: 150%;
+    border-bottom: 3px dotted gray;
+  }
+  .startButton{
+    margin-top: 3%;
+    height: 25%;
+    width: 60%;
+    font-size: 150%;
+    background-color:white;
+    color: gray;
+    border:2px solid gray;
+    border-radius: 1vw;
+  }
+  .startButton:hover{
+    margin-top: 3%;
+    height: 25%;
+    width: 60%;
+    font-size: 150%;
+    background-color:gray;
+    color: white;
+    border:2px solid gray;
+    border-radius: 1vw;
+  }
+  .backButton{
+    margin-top: 3%;
+    height: 25%;
+    width: 60%;
+    font-size: 150%;
+    background-color: white;
+    color: gray;
+    border:2px solid gray;
+    border-radius: 1vw;
+  }
+  .backButton:hover{
+    margin-top: 3%;
+    height: 25%;
+    width: 60%;
+    font-size: 150%;
+    background-color:gray;
+    color: white;
+    border:2px solid gray;
+    border-radius: 1vw;
+  }  
+  .quizWrapper{
+    width: 80%;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: grid;
+    grid-template:
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1%
+      "header header header header header header header header header header header header header" 10%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 5%
+      "question question question question question question question question question question question question question" 10%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 5%
+      "answer0 answer0 answer0 answer0 answer0 answer0 answer0 answer0 answer0 answer0 answer0 answer0 answer0" 10%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 2%
+      "answer1 answer1 answer1 answer1 answer1 answer1 answer1 answer1 answer1 answer1 answer1 answer1 answer1" 10%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 2%
+      "answer2 answer2 answer2 answer2 answer2 answer2 answer2 answer2 answer2 answer2 answer2 answer2 answer2" 10%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 2%
+      "answer3 answer3 answer3 answer3 answer3 answer3 answer3 answer3 answer3 answer3 answer3 answer3 answer3" 10%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1fr
+      /1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  .question{
+    grid-area: question;
+    display: flex;
+    background-color: white;
+    color: black;
+    justify-content: center; /* 横中央 */ 
+    align-items: center; /* 縦中央 */
+    height: 100%;
+    font-size: 2rem;
+    font-weight: bold;
+    border:2px solid black;
+    border-radius: 1vw;
+  }
+  
+  .answer0{
+    grid-area: answer0;
+    background-color:white;
+    color: gray;
+    border:2px solid gray;
+    border-radius: 1vw;
+    font-size: 2rem;
+  }
+  
+  .answer0:hover{
+    grid-area: answer0;
+    background-color:gray;
+    color: white;
+    border:2px solid gray;
+    border-radius: 1vw;
+    font-size: 2rem;
+  }
+  
+  
+  .answer1{
+    grid-area: answer1;
+    background-color:white;
+    color: gray;
+    border:2px solid gray;
+    border-radius: 1vw;
+    font-size: 2rem;
+  }
+  
+  .answer1:hover{
+    grid-area: answer1;
+    background-color:gray;
+    color: white;
+    border:2px solid gray;
+    border-radius: 1vw;
+    font-size: 2rem;
+  }
+  
+  .answer2{
+    grid-area: answer2;
+    background-color:white;
+    color: gray;
+    border:2px solid gray;
+    border-radius: 1vw;
+    font-size: 2rem;
+  }
+  
+  .answer2:hover{
+    grid-area: answer2;
+    background-color:gray;
+    color: white;
+    border:2px solid gray;
+    border-radius: 1vw;
+    font-size: 2rem;
+  }
+  
+  .answer3{
+    grid-area: answer3;
+    background-color:white;
+    color: gray;
+    border:2px solid gray;
+    border-radius: 1vw;
+    font-size: 2rem;
+  }
+  
+  .answer3:hover{
+    grid-area: answer3;
+    background-color:gray;
+    color: white;
+    border:2px solid gray;
+    border-radius: 1vw;
+    font-size: 2rem;
+  }
+
+  .successWrapper{
+    width: 80%;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: grid;
+    grid-template:
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 10px
+      "header header header header header header header header header header header header header" 50px
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 60px
+      "success success success success success success success success success success success success success" 50%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 10%
+      "home home home home home home  ...... retry retry retry retry retry retry" 10%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1fr
+      /1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .successContainer{
+    grid-area: success;
+    border:1px solid black;
+    border-radius: 1vw;
+    overflow: hidden;
+  }
+  .success{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    color:white;
+    height: 30%;
+    font-size:2.5rem;
+  }
+  .successAbout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(232, 210, 210);
+    color:red;
+    height: 20%;
+    font-size: 1.5rem;
+    border-bottom: 3px dotted red;
+  }
+  .successExplain{
+    background-color: rgb(232, 210, 210);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 25%;
+    font-size: 1rem;
+    font-weight: bold;
+    padding-left: 3%;
+  }
+  #successExplain1{
+    border-left: 5px solid greenyellow;
+    border-bottom: 1px solid black;
+  }
+  #successExplain2{
+    border-left: 5px solid red;
+  }
+  .returnHome{
+    grid-area: home;
+    background-color:white;
+    color: gray;
+    border:2px solid gray;
+    border-radius: 1vw;
+    font-size: 1.5rem;
+  }
+  .returnHome:hover{
+    grid-area: home;
+    background-color:gray;
+    color: white;
+    border:2px solid gray;
+    border-radius: 1vw;
+    font-size: 1.5rem;
+  }
+  .retry{
+    grid-area: retry;
+    background-color:white;
+    color: gray;
+    border:2px solid gray;
+    border-radius: 1vw;
+    font-size: 1.5rem;
+  }
+  .retry:hover{
+    grid-area: retry;
+    background-color:gray;
+    color: white;
+    border:2px solid gray;
+    border-radius: 1vw;
+    font-size: 1.5rem;
+  }
+
+  .failWrapper{
+    width: 80%;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: grid;
+    grid-template:
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 10px
+      "header header header header header header header header header header header header header" 50px
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 60px
+      "fail fail fail fail fail fail fail fail fail fail fail fail fail" 50%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 10%
+      "home home home home home home  ...... retry retry retry retry retry retry" 10%
+      "...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ...... ......" 1fr
+      /1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .failContainer{
+    grid-area: fail;
+    border:1px solid black;
+    border-radius: 1vw;
+    overflow: hidden;
+  }
+  .fail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    color:white;
+    height: 30%;
+    font-size:2.5rem;
+  }
+  .failAbout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(176, 176, 232);
+    color:blue;
+    height: 20%;
+    font-size: 1.5rem;
+    border-bottom: 3px dotted blue;
+  }
+  .failExplain{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: rgb(176, 176, 232);
+    height: 25%;
+    font-size: 1rem;
+    font-weight: bold;
+    padding-left: 3%;
+  }
+  #failExplain1{
+    border-left: 5px solid brown;
+    border-bottom: 1px solid black;
+  }
+  #failExplain2{
+    border-left: 5px solid yellow;
+  }
+}
+
