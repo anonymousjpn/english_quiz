@@ -875,7 +875,7 @@ header{
     color: gray;
     border:2px solid gray;
     border-radius: 1vw;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   .returnHome:hover{
     grid-area: home;
@@ -883,7 +883,7 @@ header{
     color: white;
     border:2px solid gray;
     border-radius: 1vw;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   .retry{
     grid-area: retry;
@@ -891,7 +891,7 @@ header{
     color: gray;
     border:2px solid gray;
     border-radius: 1vw;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   .retry:hover{
     grid-area: retry;
@@ -899,7 +899,7 @@ header{
     color: white;
     border:2px solid gray;
     border-radius: 1vw;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .failWrapper{
